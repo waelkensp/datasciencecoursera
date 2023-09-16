@@ -1,0 +1,10 @@
+path1 <- file.path(getwd(),"Data","reviews.csv")
+reviews <- read.csv(path1)
+path2 <- file.path(getwd(),"Data","solutions.csv")
+solutions <- read.csv(path2)
+names(reviews)
+names(solutions)
+
+mergedData = merge(reviews, solutions, by.x="solution_id", by.y="id", all=TRUE)
+head(mergedData)
+intersect(names(solutions), names(reviews))
